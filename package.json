@@ -1,0 +1,22 @@
+{
+  "name": "carro-de-compras",
+  "version": "1.0.0",
+  "description": "Shopping Cart test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtatanx/carro-de-compras.git"
+  },
+  "author": "Jhonnatan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xtatanx/carro-de-compras/issues"
+  },
+  "homepage": "https://github.com/xtatanx/carro-de-compras#readme",
+  "engines": {
+    "node": ">=6.6.0"
+  }
+}
