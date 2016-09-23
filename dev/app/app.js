@@ -1,4 +1,18 @@
-console.log('cats');
+var css = require('../styl/main.styl');
+
+class Cat {
+  constructor() {
+    this.name = 'cat';
+  }
+
+  speak() {
+    console.log(this.name);
+  }
+}
+
+const cat = new Cat();
+
+cat.speak();
 
 // dev workflow
 // clean public folder
