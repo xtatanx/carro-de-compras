@@ -1,18 +1,20 @@
-var css = require('../styl/main.styl');
+import '../styl/main.styl';
+import angular from 'angular';
+import angularroute from 'angular-route';
+import appConfig from './app.config.js';
+import envConstants from './constants/app-environments.js';
+import productsFactory from './services/products.js';
 
-class Cat {
-  constructor() {
-    this.name = 'cat';
-  }
-
-  speak() {
-    console.log(this.name);
-  }
+/*@ngInject*/
+let mainCtrl = $scope => {
+  $scope.hello = 'world';
 }
 
-const cat = new Cat();
+angular.module('app', ['ngRoute'])
+  .factory('productsFactory', productsFactory)
+  .constant('envConfig', envConstants)
+  .config(appConfig);
 
-cat.speak();
 
 // dev workflow
 // clean public folder

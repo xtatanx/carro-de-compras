@@ -40,7 +40,8 @@ gulp.task('webpack:dev-server', () => {
     progress: true,
     historyApiFallback: true,
     stats: {
-      colors: true
+      colors: true,
+      errorDetails: true
     }
   });
 

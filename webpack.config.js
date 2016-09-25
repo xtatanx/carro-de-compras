@@ -14,27 +14,35 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:8080/'
   },
   module: {
     loaders: [
       {
         test: /\.styl$/,
-        exclude: ['node_modules'],
         loader: 'style-loader!css-loader?sourceMap!postcss-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
       },
       {
         test: /\.js$/,
         exclude: ['node_modules'],
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        loader: 'ng-annotate!babel-loader?presets[]=es2015',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        loader: 'url?limit=100000&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        loader: 'url?limit=100000&name=assets/[name].[ext]'
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      PRODUCTION: false
+    })
   ],
   stylus: {
     use: [rupture],
