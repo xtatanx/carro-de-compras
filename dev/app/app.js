@@ -4,6 +4,7 @@ import angularroute from 'angular-route';
 import appConfig from './app.config.js';
 import envConstants from './constants/app-environments.js';
 import productsFactory from './services/products.js';
+import removeDecimal from './filters/remove-decimals.js'
 
 /*@ngInject*/
 let mainCtrl = $scope => {
@@ -11,9 +12,10 @@ let mainCtrl = $scope => {
 }
 
 angular.module('app', ['ngRoute'])
-  .factory('productsFactory', productsFactory)
+  .config(appConfig)
   .constant('envConfig', envConstants)
-  .config(appConfig);
+  .factory('productsFactory', productsFactory)
+  .filter('removeDecimalPoint', removeDecimal);
 
 
 // dev workflow

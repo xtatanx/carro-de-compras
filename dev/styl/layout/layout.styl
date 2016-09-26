@@ -9,7 +9,33 @@
     +above('xl')
       max-width 1170px
 
+  &-utility-bar
+    margin 18px 0
+
+    &__container
+      lost-flex-container row
+
+    &__sort
+    &__filter
+      align-self center
+
+    &__sort
+      margin-left auto
+
   &-strip
     background $alto-color
     padding-top 20px
     padding-bottom 20px
+
+  &-product-grid
+    lost-flex-container row
+    margin 0
+    padding 0
+    list-style none
+
+    +above('l')
+      lost-column 2/3
+
+  &-product-grid-aside
+    +above('l')
+      lost-column 1/3
