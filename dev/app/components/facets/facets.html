@@ -1,0 +1,42 @@
+<div class="facets-bar">
+  <div class="facets-bar__container">
+    <div class="facets-bar__header">
+      <button class="facets-bar__close">x</button>
+      <h3 class="facets-bar__title">Filters</h3>
+    </div>
+    <div class="facet">
+      <h3 class="facet__title">Categories</h3>
+      <ul class="facet__list">
+        <li class="facet__item" ng-repeat="facet in facetsCtrl.categoryFacet">
+          <label>
+            <input class="facet__item-input" type="checkbox" ng-value="facet.categori_id" name="selectedCategories" ng-model="facet.selected" ng-change="facetsCtrl.selectCategory(facet.categori_id)">
+            {{facet.name}}
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="facet">
+      <h3 class="facet__title">Price</h3>
+      <ul class="facet__list">
+        <li class="facet__item" ng-repeat="facet in facetsCtrl.priceFacet">
+          <label>
+            <input class="facet__item-input" type="checkbox" ng-value="facet.id" name="selectedPrice" ng-model="facet.selected" ng-change="facetsCtrl.selectPrice(facet.id)">
+            {{facet.name}}
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="facet">
+      <h3 class="facet__title">Status</h3>
+      <ul class="facet__list">
+        <li class="facet__item" ng-repeat="facet in facetsCtrl.statusFacet">
+          <label>
+            <input class="facet__item-input" type="checkbox" ng-value="facet.id" name="selectedStatus" ng-model="facet.selected">
+            {{facet.name}}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="facets-bar__overlay"></div>
+</div>

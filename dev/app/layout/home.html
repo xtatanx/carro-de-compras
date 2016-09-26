@@ -5,7 +5,7 @@
   <div class="l-strip">
     <div class="l-container">
       <form class="search-form">
-        <input class="search-form__input" type="text" placeholder="Busca un producto" ng-model="homeCtrl.searchName">
+        <input class="search-form__input" type="text" placeholder="Busca un producto" ng-model="homeCtrl.filters.name">
         <button class="search-form__button" type="submit">
           <span class="icon-search"></span>
           <span class="visuallyhidden">Buscar</span>
@@ -19,40 +19,16 @@
       <button class="button button--secundary l-utility-bar__filter">Filter</button>
       <span class="l-utility-bar__sort">
         sort:
-        <select ng-model="homeCtrl.orderProperty" ng-options="filter.orderBy as filter.name for filter in homeCtrl.filters"></select>
+        <select ng-model="homeCtrl.orderProperty" ng-options="sortType.orderBy as sortType.name for sortType in homeCtrl.sortFilters"></select>
       </span>
     </div>
   </div>
   <div class="l-container">
     <aside class="l-product-grid-aside">
-      <div class="facets-bar">
-        <div class="facet">
-          <h3 class="facet__title">Categories</h3>
-          <ul class="facet__list">
-            <li class="facet__item">
-              <label>
-                <input type="checkbox">
-                all
-              </label>
-            </li>
-            <li class="facet__item">
-              <label>
-                <input type="checkbox">
-                drinks
-              </label>
-            </li>
-            <li class="facet__item">
-              <label>
-                <input type="checkbox">
-                food
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <facets-bar category-facet="homeCtrl.categories" price-facet="homeCtrl.prices" status-facet="homeCtrl.status" filters='homeCtrl.filters' filter-products='homeCtrl.filterProducts(id)'></facets-bar>
     </aside>
-    <ul class="l-product-grid">
-      <li class="product-card" ng-repeat="product in homeCtrl.products | orderBy:homeCtrl.orderProperty | filter: {name: homeCtrl.searchName}">
+    <ul class="l-product-grid" ng-if="homeCtrl.products">
+      <li class="product-card" ng-repeat="product in homeCtrl.products | orderBy:homeCtrl.orderProperty | filterProducts:homeCtrl.filters | filter:{name: homeCtrl.filters.name}">
         <a class="product-card__link" href="#">
           <img class="product-card__img" ng-src="{{product.img}}" alt="{{product.name}}">
           <h4 class="product-card__name">{{product.name}}</h4>

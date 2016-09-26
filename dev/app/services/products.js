@@ -1,8 +1,8 @@
 /*@ngInject*/
 export default ($http, envConfig) => {
-  var endpoint = envConfig.endpoint;
+  let endpoint = envConfig.endpoint;
 
-  var getProducts = () => {
+  let getProducts = () => {
     return $http.get(`${endpoint}/data.json`)
   }
 
