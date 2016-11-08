@@ -31,12 +31,14 @@
       <ul class="facet__list">
         <li class="facet__item" ng-repeat="facet in facetsCtrl.statusFacet">
           <label>
-            <input class="facet__item-input" type="checkbox" ng-value="facet.id" name="selectedStatus" ng-model="facet.selected">
+            <input class="facet__item-input" type="radio" ng-value="facet.value" name="selectedStatus" ng-model="facetsCtrl.filters.status">
             {{facet.name}}
           </label>
         </li>
       </ul>
     </div>
+    div
+    <button class="button button--secundary">reset</button><button class="button button--primary">apply</button>
   </div>
   <div class="facets-bar__overlay"></div>
 </div>

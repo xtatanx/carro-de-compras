@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 export default class FacetsController {
   constructor() {
     // console.log(this.parent);

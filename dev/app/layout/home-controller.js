@@ -23,21 +23,25 @@ export default class HomeController {
 
     this.filters = {
       categories: '',
-      price: ''
+      price: '',
+      status: ''
     };
 
     this.status = [
       {
         id: 0,
-        name: 'Available'
+        name: 'Available',
+        value: 'available'
       },
       {
         id: 1,
-        name: 'Unavailable'
+        name: 'Unavailable',
+        value: 'unavailable'
       },
       {
-        id: 1,
-        name: 'Best match'
+        id: 2,
+        name: 'Best match',
+        value: 'bestseller'
       }
     ];
     this.prices = [
@@ -71,9 +75,5 @@ export default class HomeController {
       this.categories = response.data.categories;
     });
 
-  };
-
-  filterProducts (id) {
-    console.log(this.products, id);
   };
 }

@@ -56,6 +56,25 @@ export default () => {
         return item;
       }
 
+    }).filter(item => {
+      // debugger;
+      if (comparatorObj.status === '') {
+        return item;
+      }
+
+      if (comparatorObj.status === 'bestseller') {
+        if (item.best_seller) {
+          return item
+        }
+      } else if (comparatorObj.status === 'available') {
+        if (item.available) {
+          return item;
+        }
+      } else if (comparatorObj.status === 'unavailable'){
+        if (!item.available) {
+          return item;
+        }
+      }
     });
   }
 }
